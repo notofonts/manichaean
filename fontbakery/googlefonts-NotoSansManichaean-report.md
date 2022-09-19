@@ -2,11 +2,7 @@
 
 Fontbakery version: 0.8.10
 
-<details><summary><b>[6] NotoSansManichaean-Regular.ttf</b></summary><div><details><summary>🔥 <b>FAIL:</b> Checking OS/2 usWinAscent & usWinDescent. (<a href="https://font-bakery.readthedocs.io/en/stable/fontbakery/profiles/universal.html#com.google.fonts/check/family/win_ascent_and_descent">com.google.fonts/check/family/win_ascent_and_descent</a>)</summary><div>
-
-
-* 🔥 **FAIL** OS/2.usWinAscent value should be equal or greater than 995, but got 790 instead [code: ascent]
-</div></details><details><summary>🔥 <b>FAIL:</b> Check that texts shape as per expectation (<a href="https://font-bakery.readthedocs.io/en/stable/fontbakery/profiles/<Section: Shaping Checks>.html#com.google.fonts/check/shaping/regression">com.google.fonts/check/shaping/regression</a>)</summary><div>
+<details><summary><b>[5] NotoSansManichaean-Regular.ttf</b></summary><div><details><summary>🔥 <b>FAIL:</b> Check that texts shape as per expectation (<a href="https://font-bakery.readthedocs.io/en/stable/fontbakery/profiles/<Section: Shaping Checks>.html#com.google.fonts/check/shaping/regression">com.google.fonts/check/shaping/regression</a>)</summary><div>
 
 
 * 🔥 **FAIL** qa/shaping_tests/manichaean.json: Expected and actual shaping not matching
@@ -5492,8 +5488,8 @@ The following glyphs do not have the recommended number of contours:
 
 | 💔 ERROR | 🔥 FAIL | ⚠ WARN | 💤 SKIP | ℹ INFO | 🍞 PASS | 🔎 DEBUG |
 |:-----:|:----:|:----:|:----:|:----:|:----:|:----:|
-| 0 | 2 | 4 | 110 | 7 | 104 | 0 |
-| 0% | 1% | 2% | 48% | 3% | 46% | 0% |
+| 0 | 1 | 4 | 110 | 7 | 105 | 0 |
+| 0% | 0% | 2% | 48% | 3% | 46% | 0% |
 
 **Note:** The following loglevels were omitted in this report:
 * **SKIP**
