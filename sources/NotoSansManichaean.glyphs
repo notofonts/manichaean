@@ -1,5 +1,8 @@
 {
-.appVersion = "1359";
+.appVersion = "3202";
+DisplayStrings = (
+"/uni0640/u10AEB.medi.high/uni0640.high/u10AED.init"
+);
 copyright = "Copyright 2022 The Noto Project Authors (https://github.com/notofonts/manichaean)";
 customParameters = (
 {
@@ -193,6 +196,10 @@ value = (
 );
 },
 {
+name = "Use Typo Metrics";
+value = 1;
+},
+{
 name = description;
 value = "Designed by Monotype design team.";
 },
@@ -215,10 +222,6 @@ value = "Noto is a trademark of Google Inc.";
 {
 name = versionString;
 value = "Version 2.004";
-},
-{
-name = "Use Typo Metrics";
-value = 1;
 }
 );
 date = "2022-04-19 02:56:12 +0000";
@@ -229,7 +232,7 @@ disablesNiceNames = 1;
 familyName = "Noto Sans Manichaean";
 featurePrefixes = (
 {
-code = "lookup SingleSubstitution7 {\012    lookupflag 0;\012    ;\012    # Original source: 6 \012    sub u10AEB.fina by u10AEB.fina.high;\012    sub u10AEB.medi by u10AEB.medi.high;\012    sub u10AEC.fina by u10AEC.fina.high;\012    sub u10AEC.medi by u10AEC.medi.high;\012} SingleSubstitution7;\012";
+code = "lookup SingleSubstitution7 {\012    lookupflag 0;\012    ;\012    # Original source: 6 \012    sub u10AEB.fina by u10AEB.fina.high;\012    sub u10AEB.medi by u10AEB.medi.high;\012    sub u10AEC.fina by u10AEC.fina.high;\012    sub u10AEC.medi by u10AEC.medi.high;\012	sub uni0640 by uni0640.high;\012} SingleSubstitution7;\012";
 name = SingleSubstitution7;
 },
 {
@@ -255,7 +258,7 @@ code = "# Because of alt, we can't do this automatically\012sub u10AD6.alt by u1
 name = medi;
 },
 {
-code = "sub [u10AED.medi u10AED.init u10AEB.medi.high u10AEC.medi.high] [u10AEB.fina u10AEB.medi u10AEC.fina u10AEC.medi]' lookup SingleSubstitution7;\012\012sub u10ADD u10ACF by u10ADD10ACF;\012sub u10ADD u10AD7 by u10ADD10AD7;";
+code = "sub [u10AED.medi u10AED.init u10AEB.medi.high u10AEC.medi.high uni0640.high] [u10AEB.fina u10AEB.medi u10AEC.fina u10AEC.medi uni0640]' lookup SingleSubstitution7;\012\012sub u10ADD u10ACF by u10ADD10ACF;\012sub u10ADD u10AD7 by u10ADD10AD7;\012";
 name = rclt;
 },
 {
@@ -11771,7 +11774,7 @@ width = 323;
 },
 {
 glyphname = u10AEB.medi.high;
-lastChange = "2018-03-14 14:29:06 +0000";
+lastChange = "2023-06-29 08:10:45 +0000";
 layers = (
 {
 layerId = UUID0;
@@ -11779,36 +11782,36 @@ paths = (
 {
 closed = 1;
 nodes = (
-"29 212 LINE SMOOTH",
-"169 212 OFFCURVE",
-"225 265 OFFCURVE",
-"225 364 CURVE SMOOTH",
-"225 455 OFFCURVE",
-"184 556 OFFCURVE",
-"91 556 CURVE SMOOTH",
-"40 556 OFFCURVE",
-"12 527 OFFCURVE",
-"12 483 CURVE SMOOTH",
-"12 441 OFFCURVE",
-"36 418 OFFCURVE",
-"68 406 CURVE SMOOTH",
-"103 393 OFFCURVE",
-"127 374 OFFCURVE",
-"127 345 CURVE SMOOTH",
-"127 315 OFFCURVE",
-"107 293 OFFCURVE",
-"35 293 CURVE SMOOTH",
-"-39 293 LINE",
-"-39 212 LINE"
+"29 217 LINE SMOOTH",
+"169 217 OFFCURVE",
+"225 270 OFFCURVE",
+"225 369 CURVE SMOOTH",
+"225 460 OFFCURVE",
+"184 561 OFFCURVE",
+"91 561 CURVE SMOOTH",
+"40 561 OFFCURVE",
+"12 532 OFFCURVE",
+"12 488 CURVE SMOOTH",
+"12 446 OFFCURVE",
+"36 423 OFFCURVE",
+"68 411 CURVE SMOOTH",
+"103 398 OFFCURVE",
+"127 379 OFFCURVE",
+"127 350 CURVE SMOOTH",
+"127 320 OFFCURVE",
+"107 298 OFFCURVE",
+"35 298 CURVE SMOOTH",
+"-39 298 LINE",
+"-39 217 LINE"
 );
 },
 {
 closed = 1;
 nodes = (
-"323 212 LINE",
-"323 293 LINE",
-"52 293 LINE",
-"52 212 LINE"
+"323 217 LINE",
+"323 298 LINE",
+"52 298 LINE",
+"52 217 LINE"
 );
 }
 );
@@ -11859,6 +11862,28 @@ width = 260;
 );
 widthMetricsKey = space;
 unicode = 00A0;
+},
+{
+glyphname = uni0640.high;
+lastChange = "2023-06-29 08:09:59 +0000";
+layers = (
+{
+layerId = UUID0;
+paths = (
+{
+closed = 1;
+nodes = (
+"185 217 LINE",
+"185 298 LINE",
+"-39 298 LINE",
+"-39 217 LINE"
+);
+}
+);
+width = 146;
+}
+);
+category = Letter;
 }
 );
 instances = (
