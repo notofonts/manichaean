@@ -1,7 +1,7 @@
 {
-.appVersion = "3202";
+.appVersion = "3205";
 DisplayStrings = (
-"/uni0640/u10AEB.medi.high/uni0640.high/u10AED.init"
+"/u10ADD10AD7.fina"
 );
 copyright = "Copyright 2022 The Noto Project Authors (https://github.com/notofonts/manichaean)";
 customParameters = (
@@ -258,7 +258,7 @@ code = "# Because of alt, we can't do this automatically\012sub u10AD6.alt by u1
 name = medi;
 },
 {
-code = "sub [u10AED.medi u10AED.init u10AEB.medi.high u10AEC.medi.high uni0640.high] [u10AEB.fina u10AEB.medi u10AEC.fina u10AEC.medi uni0640]' lookup SingleSubstitution7;\012\012sub u10ADD u10ACF by u10ADD10ACF;\012sub u10ADD u10AD7 by u10ADD10AD7;\012";
+code = "sub [u10AED.medi u10AED.init u10AEB.medi.high u10AEC.medi.high uni0640.high] [u10AEB.fina u10AEB.medi u10AEC.fina u10AEC.medi uni0640]' lookup SingleSubstitution7;\012\012lookupflag IgnoreMarks;\012sub u10ADD u10ACF by u10ADD10ACF;\012sub u10ADD u10AD7 by u10ADD10AD7;\012";
 name = rclt;
 },
 {
@@ -4214,13 +4214,17 @@ subCategory = Nonspacing;
 },
 {
 glyphname = u10ADD10ACF;
-lastChange = "2018-03-14 14:29:06 +0000";
+lastChange = "2023-07-12 11:10:46 +0000";
 layers = (
 {
 anchors = (
 {
-name = Anchor2;
-position = "{585, 488}";
+name = Anchor2_1;
+position = "{896, 494}";
+},
+{
+name = Anchor2_2;
+position = "{260, 494}";
 },
 {
 name = Anchor3;
@@ -4320,13 +4324,17 @@ width = 1104;
 },
 {
 glyphname = u10ADD10ACF.fina;
-lastChange = "2018-03-14 14:29:06 +0000";
+lastChange = "2023-07-12 11:10:49 +0000";
 layers = (
 {
 anchors = (
 {
-name = Anchor2;
-position = "{585, 488}";
+name = Anchor2_1;
+position = "{896, 494}";
+},
+{
+name = Anchor2_2;
+position = "{249, 494}";
 },
 {
 name = Anchor3;
@@ -4423,13 +4431,17 @@ width = 1065;
 },
 {
 glyphname = u10ADD10AD7;
-lastChange = "2018-03-14 14:29:06 +0000";
+lastChange = "2023-07-12 11:10:56 +0000";
 layers = (
 {
 anchors = (
 {
-name = Anchor2;
-position = "{585, 488}";
+name = Anchor2_1;
+position = "{896, 488}";
+},
+{
+name = Anchor2_2;
+position = "{275, 488}";
 },
 {
 name = Anchor3;
@@ -4479,7 +4491,7 @@ nodes = (
 "828 295 OFFCURVE",
 "831 276 CURVE",
 "652 285 OFFCURVE",
-"578 351 OFFCURVE",
+"579 351 OFFCURVE",
 "535 395 CURVE SMOOTH",
 "510 420 OFFCURVE",
 "490 438 OFFCURVE",
@@ -4547,16 +4559,21 @@ nodes = (
 width = 1104;
 }
 );
+subCategory = Ligature;
 },
 {
 glyphname = u10ADD10AD7.fina;
-lastChange = "2018-03-14 14:29:06 +0000";
+lastChange = "2023-07-12 11:11:00 +0000";
 layers = (
 {
 anchors = (
 {
-name = Anchor2;
-position = "{585, 488}";
+name = Anchor2_1;
+position = "{896, 488}";
+},
+{
+name = Anchor2_2;
+position = "{273, 488}";
 },
 {
 name = Anchor3;
@@ -4671,6 +4688,7 @@ nodes = (
 width = 1065;
 }
 );
+subCategory = Ligature;
 },
 {
 glyphname = u10AC0.fina;
