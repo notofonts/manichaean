@@ -236,7 +236,7 @@ code = "lookup SingleSubstitution7 {\012    lookupflag 0;\012    ;\012    # Orig
 name = SingleSubstitution7;
 },
 {
-code = "languagesystem mani dflt;\012languagesystem arab dflt;\012";
+code = "languagesystem DFLT dflt;\012languagesystem mani dflt;\012languagesystem arab dflt;\012";
 name = Languagesystems;
 }
 );
@@ -246,7 +246,7 @@ code = "\012sub u10AC5 uniFE00 by u10AC5.alt;\012sub u10AC6 uniFE00 by u10AC6.al
 name = ccmp;
 },
 {
-code = "# Because of alt, we can't do this automatically\012sub u10AE1.alt by u10AE1.fina;\012sub u10AC5.alt by u10AC5.fina;\012\012sub u10ADD10ACF by u10ADD10ACF.fina;\012sub u10ADD10AD7 by u10ADD10AD7.fina;\012sub u10AC0 by u10AC0.fina;\012sub u10AC1 by u10AC1.fina;\012sub u10AC2 by u10AC2.fina;\012sub u10AC3 by u10AC3.fina;\012sub u10AC4 by u10AC4.fina;\012sub u10AC5 by u10AC5.fina;\012sub u10AC7 by u10AC7.fina;\012sub u10AC9 by u10AC9.fina;\012sub u10ACA by u10ACA.fina;\012sub u10ACE by u10ACE.fina;\012sub u10ACF by u10ACF.fina;\012sub u10AD0 by u10AD0.fina;\012sub u10AD1 by u10AD1.fina;\012sub u10AD2 by u10AD2.fina;\012sub u10AD3 by u10AD3.fina;\012sub u10AD4 by u10AD4.fina;\012sub u10AD5 by u10AD5.fina;\012sub u10AD6 by u10AD6.fina;\012sub u10AD8 by u10AD8.fina;\012sub u10AD9 by u10AD9.fina;\012sub u10ADA by u10ADA.fina;\012sub u10ADB by u10ADB.fina;\012sub u10ADC by u10ADC.fina;\012sub u10ADD by u10ADD.fina;\012sub u10ADE by u10ADE.fina;\012sub u10ADF by u10ADF.fina;\012sub u10AE0 by u10AE0.fina;\012sub u10AE1 by u10AE1.fina;\012sub u10AE4 by u10AE4.fina;\012sub u10AD6.alt by u10AD6.alt.fina;\012sub u10AEB by u10AEB.fina;\012sub u10AEC by u10AEC.fina;\012sub u10AED by u10AED.fina;\012sub u10AEE by u10AEE.fina;\012sub u10AEF by u10AEF.fina;\012";
+code = "# Because of alt, we can't do this automatically\012sub u10AE1.alt by u10AE1.fina;\012sub u10AC5.alt by u10AC5.fina;\012\012sub u10AC0 by u10AC0.fina;\012sub u10AC1 by u10AC1.fina;\012sub u10AC2 by u10AC2.fina;\012sub u10AC3 by u10AC3.fina;\012sub u10AC4 by u10AC4.fina;\012sub u10AC5 by u10AC5.fina;\012sub u10AC7 by u10AC7.fina;\012sub u10AC9 by u10AC9.fina;\012sub u10ACA by u10ACA.fina;\012sub u10ACE by u10ACE.fina;\012sub u10ACF by u10ACF.fina;\012sub u10AD0 by u10AD0.fina;\012sub u10AD1 by u10AD1.fina;\012sub u10AD2 by u10AD2.fina;\012sub u10AD3 by u10AD3.fina;\012sub u10AD4 by u10AD4.fina;\012sub u10AD5 by u10AD5.fina;\012sub u10AD6 by u10AD6.fina;\012sub u10AD8 by u10AD8.fina;\012sub u10AD9 by u10AD9.fina;\012sub u10ADA by u10ADA.fina;\012sub u10ADB by u10ADB.fina;\012sub u10ADC by u10ADC.fina;\012sub u10ADD by u10ADD.fina;\012sub u10ADE by u10ADE.fina;\012sub u10ADF by u10ADF.fina;\012sub u10AE0 by u10AE0.fina;\012sub u10AE1 by u10AE1.fina;\012sub u10AE4 by u10AE4.fina;\012sub u10AD6.alt by u10AD6.alt.fina;\012sub u10AEB by u10AEB.fina;\012sub u10AEC by u10AEC.fina;\012sub u10AED by u10AED.fina;\012sub u10AEE by u10AEE.fina;\012sub u10AEF by u10AEF.fina;\012";
 name = fina;
 },
 {
@@ -258,7 +258,7 @@ code = "# Because of alt, we can't do this automatically\012sub u10AD6.alt by u1
 name = medi;
 },
 {
-code = "sub [u10AED.medi u10AED.init u10AEB.medi.high u10AEC.medi.high uni0640.high] [u10AEB.fina u10AEB.medi u10AEC.fina u10AEC.medi uni0640]' lookup SingleSubstitution7;\012\012lookupflag IgnoreMarks;\012sub u10ADD u10ACF by u10ADD10ACF;\012sub u10ADD u10AD7 by u10ADD10AD7;\012";
+code = "sub [u10AED.medi u10AED.init u10AEB.medi.high u10AEC.medi.high uni0640.high] [u10AEB.fina u10AEB.medi u10AEC.fina u10AEC.medi uni0640]' lookup SingleSubstitution7;\012\012lookupflag IgnoreMarks;\012sub u10ADD u10ACF by u10ADD10ACF;\012sub u10ADD u10AD7 by u10ADD10AD7;\012sub u10ADD.fina u10ACF by u10ADD10ACF.fina;\012sub u10ADD.fina u10AD7 by u10ADD10AD7.fina;\012";
 name = rclt;
 },
 {
