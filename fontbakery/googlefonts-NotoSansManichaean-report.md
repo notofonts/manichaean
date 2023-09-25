@@ -1,21 +1,11 @@
-## Fontbakery report
+## FontBakery report
 
-Fontbakery version: 0.8.13
+fontbakery version: 0.9.2
 
-<details><summary><b>[8] NotoSansManichaean-Regular.ttf</b></summary><div><details><summary>🔥 <b>FAIL:</b> Version number has increased since previous release on Google Fonts? (<a href="https://font-bakery.readthedocs.io/en/stable/fontbakery/profiles/googlefonts.html#com.google.fonts/check/version_bump">com.google.fonts/check/version_bump</a>)</summary><div>
-
-
-* 🔥 **FAIL** Version number 2.003997802734375 is equal to version on Google Fonts GitHub repo.
-</div></details><details><summary>🔥 <b>FAIL:</b> Noto fonts must have an ARTICLE.en_us.html file (<a href="https://font-bakery.readthedocs.io/en/stable/fontbakery/profiles/googlefonts.html#com.google.fonts/check/description/noto_has_article">com.google.fonts/check/description/noto_has_article</a>)</summary><div>
+<details><summary><b>[8] NotoSansManichaean-Regular.ttf</b></summary><div><details><summary>🔥 <b>FAIL:</b> Noto fonts must have an ARTICLE.en_us.html file (<a href="https://font-bakery.readthedocs.io/en/stable/fontbakery/profiles/googlefonts.html#com.google.fonts/check/description/noto_has_article">com.google.fonts/check/description/noto_has_article</a>)</summary><div>
 
 
 * 🔥 **FAIL** This is a Noto font but it lacks an ARTICLE.en_us.html file [code: missing-article]
-</div></details><details><summary>🔥 <b>FAIL:</b> Ensure soft_dotted characters lose their dot when combined with marks that replace the dot. (<a href="https://font-bakery.readthedocs.io/en/stable/fontbakery/profiles/universal.html#com.google.fonts/check/soft_dotted">com.google.fonts/check/soft_dotted</a>)</summary><div>
-
-
-* 🔥 **FAIL** The dot of soft dotted characters used in orthographies must disappear in the following strings: į̀ į́ į̂ į̃ į̄ į̌
-
-The dot of soft dotted characters should disappear in other cases, for example: į̆ į̇ į̈ į̊ į̋ į̒ į̦̀ į̦́ į̦̂ į̦̃ į̦̄ į̦̆ į̦̇ į̦̈ į̦̊ į̦̋ į̦̌ į̦̒ į̧̀ į̧́ [code: soft-dotted]
 </div></details><details><summary>🔥 <b>FAIL:</b> Check that texts shape as per expectation (<a href="https://font-bakery.readthedocs.io/en/stable/fontbakery/profiles/<Section: Shaping Checks>.html#com.google.fonts/check/shaping/regression">com.google.fonts/check/shaping/regression</a>)</summary><div>
 
 
@@ -5679,6 +5669,33 @@ Got: <svg class="shaping-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36
 
 
 </div> [code: shaping-regression]
+</div></details><details><summary>⚠ <b>WARN:</b> Check for codepoints not covered by METADATA subsets. (<a href="https://font-bakery.readthedocs.io/en/stable/fontbakery/profiles/googlefonts.html#com.google.fonts/check/metadata/unreachable_subsetting">com.google.fonts/check/metadata/unreachable_subsetting</a>)</summary><div>
+
+
+* ⚠ **WARN** The following codepoints supported by the font are not covered by
+    any subsets defined in the font's metadata file, and will never
+    be served. You can solve this by either manually adding additional
+    subset declarations to METADATA.pb, or by editing the glyphset
+    definitions.
+
+ * U+02C7 CARON: try adding one of: tifinagh, yi, canadian-aboriginal
+ * U+02C9 MODIFIER LETTER MACRON: not included in any glyphset definition
+ * U+02D8 BREVE: try adding one of: yi, canadian-aboriginal
+ * U+02D9 DOT ABOVE: try adding one of: yi, canadian-aboriginal
+ * U+02DB OGONEK: try adding one of: yi, canadian-aboriginal
+ * U+02DD DOUBLE ACUTE ACCENT: not included in any glyphset definition
+ * U+0302 COMBINING CIRCUMFLEX ACCENT: try adding one of: tifinagh, coptic, cherokee, math
+ * U+0306 COMBINING BREVE: try adding one of: tifinagh, old-permic
+ * U+0307 COMBINING DOT ABOVE: try adding one of: syriac, old-permic, math, tifinagh, canadian-aboriginal, coptic, tai-le, malayalam
+ * U+030A COMBINING RING ABOVE: try adding syriac
+ * U+030B COMBINING DOUBLE ACUTE ACCENT: try adding one of: cherokee, osage
+ * U+030C COMBINING CARON: try adding one of: cherokee, tai-le
+ * U+0312 COMBINING TURNED COMMA ABOVE: not included in any glyphset definition
+ * U+0326 COMBINING COMMA BELOW: not included in any glyphset definition
+ * U+0327 COMBINING CEDILLA: not included in any glyphset definition
+ * U+0328 COMBINING OGONEK: not included in any glyphset definition
+
+Or you can add the above codepoints to one of the subsets supported by the font: `latin`, `latin-ext`, `manichaean` [code: unreachable-subsetting]
 </div></details><details><summary>⚠ <b>WARN:</b> Ensure fonts have ScriptLangTags declared on the 'meta' table. (<a href="https://font-bakery.readthedocs.io/en/stable/fontbakery/profiles/googlefonts.html#com.google.fonts/check/meta/script_lang_tags">com.google.fonts/check/meta/script_lang_tags</a>)</summary><div>
 
 
@@ -5694,7 +5711,7 @@ The following glyphs do not have the recommended number of contours:
 
 	- Glyph name: uogonek	Contours detected: 2	Expected: 1
 
-	- Glyph name: aogonek	Contours detected: 3	Expected: 2 
+	- Glyph name: aogonek	Contours detected: 3	Expected: 2
 
 	- Glyph name: uogonek	Contours detected: 2	Expected: 1
  [code: contour-count]
@@ -5713,14 +5730,24 @@ minus
 * ⚠ **WARN** The following glyphs have colinear vectors:
 
 	* u10AC4 (U+10AC4): L<<310.0,-68.0>--<308.0,-63.0>> -> L<<308.0,-63.0>--<283.0,0.0>> [code: found-colinear-vectors]
+</div></details><details><summary>⚠ <b>WARN:</b> Ensure soft_dotted characters lose their dot when combined with marks that replace the dot. (<a href="https://font-bakery.readthedocs.io/en/stable/fontbakery/profiles/<Section: Shaping Checks>.html#com.google.fonts/check/soft_dotted">com.google.fonts/check/soft_dotted</a>)</summary><div>
+
+
+* ⚠ **WARN** The dot of soft dotted characters used in orthographies _must_ disappear in the following strings: į̀ į́ į̂ į̃ į̄ į̌
+
+The dot of soft dotted characters _should_ disappear in other cases, for example: į̆ į̇ į̈ į̊ į̋ į̒ į̦̀ į̦́ į̦̂ į̦̃ į̦̄ į̦̆ į̦̇ į̦̈ į̦̊ į̦̋ į̦̌ į̦̒ į̧̀ į̧́
+
+Your font fully covers the following languages that require the soft-dotted feature: Lithuanian (Latn, 2,357,094 speakers), Dutch (Latn, 31,709,104 speakers). 
+
+Your font does *not* cover the following languages that require the soft-dotted feature: Navajo (Latn, 166,319 speakers), Belarusian (Cyrl, 10,064,517 speakers), Igbo (Latn, 27,823,640 speakers), Ukrainian (Cyrl, 29,273,587 speakers), Basaa (Latn, 332,940 speakers), Aghem (Latn, 38,843 speakers). [code: soft-dotted]
 </div></details><br></div></details>
 
 ### Summary
 
 | 💔 ERROR | 🔥 FAIL | ⚠ WARN | 💤 SKIP | ℹ INFO | 🍞 PASS | 🔎 DEBUG |
 |:-----:|:----:|:----:|:----:|:----:|:----:|:----:|
-| 0 | 4 | 4 | 117 | 7 | 114 | 0 |
-| 0% | 2% | 2% | 48% | 3% | 46% | 0% |
+| 0 | 2 | 6 | 118 | 7 | 116 | 0 |
+| 0% | 1% | 2% | 47% | 3% | 47% | 0% |
 
 **Note:** The following loglevels were omitted in this report:
 * **SKIP**
