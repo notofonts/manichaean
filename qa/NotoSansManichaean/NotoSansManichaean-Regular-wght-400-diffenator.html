@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+<head>
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>GFR - Glyphs</title>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <style type="text/css">
+    
+
+        html{
+	  font-family: sans-serif;
+	}
+    @font-face {
+        font-family: "Adobe NotDef";
+        src: url(https://cdn.jsdelivr.net/gh/adobe-fonts/adobe-notdef/AND-Regular.ttf);
+    }
+	.box-title{
+	  width: 100%;
+	  font-size: 8pt;
+	  font-weight: 700;
+	  border-top: 1px solid black;
+	  padding-top: 5px;
+	  margin-bottom: 10pt;
+	  display: block;
+	}
+	.box{
+	  margin-bottom: 20pt;
+	  width: 100%;
+	  float: left;
+	}
+	.box-text{
+	}
+	
+	#nav{
+	  position: fixed;
+	  right: 20px;
+	  z-index: 100;
+	}
+	#font-toggle{
+	}
+	.nav-item{
+		display: block;
+		cursor: pointer;
+		-webkit-user-select: none; /* Safari */        
+		-moz-user-select: none; /* Firefox */
+			-ms-user-select: none; /* IE10+/Edge */
+		user-select: none; /* Standard */
+		text-align: center;
+		color: white;
+		background-color: black;
+		display: block;
+		font-size: 9pt;
+		padding: 5px;
+		margin: 2px;
+	}
+	.tooltip {
+	position: relative;
+	display: inline-block;
+	border-bottom: 1px dotted black;
+	}
+
+	.tooltip .tooltiptext {
+	font-family: sans-serif;
+	visibility: hidden;
+	width: 500px;
+	background-color: black;
+	color: #fff;
+	text-align: left;
+	font-size: 12pt;
+	line-height: 15pt;
+	border-radius: 6px;
+	padding: 5px 0;
+
+	/* Position the tooltip */
+	position: absolute;
+	z-index: 1;
+	}
+
+	.tooltip:hover .tooltiptext {
+	padding: 10px;
+	visibility: visible;
+	}
+	.tooltipleft {
+		float:left;
+		width: 249px;
+	}
+	.tooltipright {
+		float:right;
+		width:250px;
+	}
+
+			/* Stuff needed for the table differ */
+            body {
+                font-family: Helvetica;
+            }
+            .node {
+                font-family: courier;
+                cursor: pointer;
+                position: relative;
+                left: 30px;
+                padding: 5px;
+                display: block;
+                border: 1px dashed grey;
+            }
+            .header {
+            font-weight: bold;
+            }
+            .attr-before{
+                color: red;
+                cursor: text;
+            }
+            .attr-after{
+                color: green;
+                cursor: text;
+            }
+            .leaf {
+            font-weight: bold;
+            }
+            .old .cell .new {
+            	display:  none;
+            }
+            .new .cell .old {
+            	display:  none;
+            }
+            .both .cell .old {
+            	opacity: 0.75;
+            	color:  red;
+            }
+            .both .cell .new {
+            	opacity: 0.75;
+            	position: absolute;
+            	top: 0;
+            	color:  green;
+            }
+			.spacer {
+				display:block;
+				float:left;
+				width:100%;
+			}
+
+	  
+	    @font-face{
+    src: url("old-NotoSansManichaean-Regular.ttf");
+    font-family: "old font";
+    font-weight: 400;
+    
+    font-style: normal;
+}
+	  
+
+	  
+	    @font-face{
+    src: url("new-NotoSansManichaean-Regular.ttf");
+    font-family: "new font";
+    font-weight: 400;
+    
+    font-style: normal;
+}
+	  
+
+	  
+
+	  
+	    .old-wght-400{
+    font-family: "old font", "Adobe NotDef";
+    font-weight: 400;
+    
+    font-style: normal;
+    font-variation-settings: "wght" 400;
+}
+	  
+
+	  
+	    .new-wght-400{
+    font-family: "new font", "Adobe NotDef";
+    font-weight: 400;
+    
+    font-style: normal;
+    font-variation-settings: "wght" 400;
+}
+	  
+
+	  
+	
+.cell{
+  z-index: -100;
+  float: left;
+  display: block;
+  text-align: center;
+  padding: 5pt;
+  margin: 5pt;
+  width: 50pt;
+  line-height: 48.0px;
+}
+.cell-word{
+  z-index: -100;
+  float: left;
+  display: block;
+  text-align: center;
+  padding: 5pt;
+  margin: 5pt;
+  line-height: 48.0px;
+}
+.cat-strings .cell {
+  clear: both;
+  position: static;
+  float: none;
+  text-align: left;
+}
+.box-title {
+  clear: both;
+}
+
+
+	   #ot-panel {
+		max-height: 400px;
+		overflow-y: scroll;
+		background: white;
+		padding: 10px;
+		display: none;
+	   }
+    </style>
+</head>
+<body>
+    <div id="nav">
+		
+			<div class="nav-item" id="font-toggle">old</div>
+		
+			<div class="nav-item" id="ot-button">OT features</div>
+			<div id="ot-panel">
+			</div>
+		
+	</div>
+    <div id="content">
+	<h2>
+<b>Diffenator</b>
+</h2>
+	
+  
+    <div class="box">
+    <div class="box-title">Tables</div>
+      <div data-path="root" data-open="0" id="difftable"></div>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+      <div class="box">
+        <div class="box-title">Modified encoded Glyphs</div>
+        <div class="box-text old-wght-400" style="font-size: 32pt">
+          
+            <div class="cell">
+              <div class="cell-word" dir="">
+    <div class="tooltip">
+        𐫏<br>
+        <span class="tooltiptext">
+            name: MANICHAEAN LETTER YODH<br>
+            unicode: U+10ACF<br>
+            changed pixels: 2.38%
+        </span>
+    </div>
+</div>
+            </div>
+          
+          </div>
+      </div>
+    
+
+    
+    
+    <div class="box">
+      <div class="box-title">Misshapen user strings</div>
+      <div class="box-text old-wght-400" style="font-size: 32pt">
+        
+      </div>
+    </div>
+    
+
+    
+
+    </div>
+  
+<script>var fontdiff = {"head": {"checkSumAdjustment": [726467855, 562167523], "modified": [3778495805, 3808455776]}, "hhea": {"caretSlopeRise": [1, 1000]}, "glyf": {"glyphs": {"u10ACF": {"Contour: 0": {"Node: 36": {"y": [160, 311], "x": [448, 353]}, "Node: 28": {"y": [256, 163], "x": [98, 70]}, "Node: 39": {"on": [0, 1], "y": [-10, 118], "x": [342, 448]}, "Node: 35": {"y": [243, 351], "x": [412, 276]}, "Node: 24": {"y": [117, 147], "x": [87, 199]}, "Node: 20": {"on": [1, 0], "y": [169, 241], "x": [157, 205]}, "Node: 18": {"x": [200, 214]}, "Node: 32": {"on": [1, 0], "y": [351, 319], "x": [239, 127]}, "Node: 30": {"y": [312, 214], "x": [135, 70]}, "Node: 26": {"y": [160, 125], "x": [71, 146]}, "Node: 21": {"y": [147, 209], "x": [150, 211]}, "Node: 41": {"x": [null, 342], "y": [null, -10], "on": [null, 0]}, "Node: 34": {"on": [0, 1], "y": [311, 351], "x": [352, 235]}, "Node: 38": {"y": [51, 160]}, "Node: 37": {"on": [1, 0], "y": [118, 243], "x": [448, 413]}, "Node: 27": {"y": [191, 125], "x": [71, 109]}, "Node: 29": {"y": [280, 191], "x": [114, 70]}, "Node: 22": {"on": [0, 1], "y": [117, 193], "x": [131, 211]}, "Node: 19": {"on": [0, 1], "y": [214, 255], "x": [171, 200]}, "Node: 31": {"y": [351, 269], "x": [192, 88]}, "Node: 23": {"on": [1, 0], "y": [117, 179], "x": [109, 211]}, "Node: 33": {"x": [278, 190]}, "Node: 25": {"y": [143, 125], "x": [71, 171]}, "Node: 40": {"x": [null, 448], "y": [null, 51], "on": [null, 0]}}}, "u10ADD10ACF.fina": {"Contour: 0": {"Node: 36": {"y": [102, 340], "x": [628, 414]}, "Node: 28": {"on": [0, 1], "y": [-10, -142], "x": [171, 432]}, "Node: 39": {"y": [277, 438], "x": [465, 444]}, "Node: 84": {"x": [626, null], "y": [-181, null], "on": [0, null]}, "Node: 46": {"y": [414, 281], "x": [516, 748]}, "Node: 71": {"y": [0, 189], "x": [1104, 852]}, "Node: 77": {"on": [0, 1], "y": [199, 37], "x": [710, 727]}, "Node: 59": {"on": [0, 1], "y": [414, 342], "x": [950, 948]}, "Node: 20": {"on": [1, 0], "y": [199, 312], "x": [204, 174]}, "Node: 64": {"y": [327, 81], "x": [934, 1003]}, "Node: 18": {"on": [0, 1], "y": [91, 281], "x": [250, 174]}, "Node: 13": {"on": [1, 0], "y": [204, 223], "x": [375, 345]}, "Node: 83": {"x": [691, null], "y": [-107, null], "on": [0, null]}, "Node: 82": {"x": [719, null], "y": [-16, null], "on": [0, null]}, "Node: 78": {"on": [1, 0], "y": [206, -13], "x": [664, 727]}, "Node: 66": {"y": [264, 81], "x": [923, 1112]}, "Node: 32": {"y": [-142, 110], "x": [511, 636]}, "Node: 30": {"y": [-142, -40], "x": [362, 636]}, "Node: 76": {"y": [189, 91], "x": [794, 727]}, "Node: 26": {"on": [1, 0], "y": [121, -58], "x": [134, 178]}, "Node: 16": {"y": [91, 173], "x": [328, 222]}, "Node: 21": {"on": [0, 1], "y": [206, 319], "x": [204, 175]}, "Node: 41": {"on": [1, 0], "y": [379, 438], "x": [395, 492]}, "Node: 4": {"y": [56, 89], "x": [44, 8]}, "Node: 47": {"y": [395, 276], "x": [535, 839]}, "Node: 65": {"on": [0, 1], "y": [290, 81], "x": [923, 1072]}, "Node: 7": {"y": [291, 368], "x": [104, 71]}, "Node: 38": {"on": [1, 0], "y": [252, 414], "x": [521, 414]}, "Node: 49": {"y": [320, 330], "x": [626, 834]}, "Node: 2": {"y": [-169, -157], "x": [207, 161]}, "Node: 67": {"on": [0, 1], "y": [174, 0], "x": [923, 1112]}, "Node: 17": {"on": [1, 0], "y": [91, 239], "x": [297, 174]}, "Node: 62": {"on": [0, 1], "y": [353, 264], "x": [945, 931]}, "Node: 42": {"y": [410, 408], "x": [395, 532]}, "Node: 3": {"y": [-71, -45], "x": [101, 58]}, "Node: 75": {"on": [1, 0], "y": [189, 165], "x": [844, 701]}, "Node: 31": {"y": [-142, 41], "x": [440, 636]}, "Node: 23": {"on": [1, 0], "y": [237, 231], "x": [205, 98]}, "Node: 45": {"y": [438, 320], "x": [483, 634]}, "Node: 33": {"y": [-95, 227], "x": [593, 582]}, "Node: 25": {"y": [170, 81], "x": [134, 98]}, "Node: 61": {"y": [376, 290], "x": [950, 931]}, "Node: 40": {"on": [0, 1], "y": [339, 438], "x": [395, 466]}, "Node: 15": {"on": [0, 1], "y": [126, 173], "x": [361, 267]}, "Node: 8": {"y": [338, 420], "x": [198, 168]}, "Node: 14": {"y": [178, 173], "x": [375, 297]}, "Node: 54": {"on": [1, 0], "y": [343, 439], "x": [826, 921]}, "Node: 48": {"y": [372, 290], "x": [558, 837]}, "Node: 55": {"y": [387, 414], "x": [826, 958]}, "Node: 35": {"on": [1, 0], "y": [33, 276], "x": [628, 487]}, "Node: 24": {"on": [0, 1], "y": [230, 163], "x": [167, 98]}, "Node: 68": {"on": [0, 1], "y": [81, 0], "x": [995, 1050]}, "Node: 72": {"on": [1, 0], "y": [0, 189], "x": [1042, 802]}, "Node: 50": {"on": [0, 1], "y": [281, 343], "x": [740, 834]}, "Node: 6": {"y": [197, 252], "x": [44, 8]}, "Node: 51": {"on": [1, 0], "y": [276, 387], "x": [831, 834]}, "Node: 57": {"on": [1, 0], "y": [439, 376], "x": [891, 958]}, "Node: 52": {"y": [290, 439], "x": [829, 866]}, "Node: 11": {"y": [314, 355], "x": [340, 345]}, "Node: 43": {"on": [0, 1], "y": [438, 391], "x": [432, 548]}, "Node: 34": {"on": [0, 1], "y": [-15, 257], "x": [628, 536]}, "Node: 79": {"y": [164, -107], "x": [693, 694]}, "Node: 1": {"x": [352, 320]}, "Node: 53": {"on": [0, 1], "y": [330, 439], "x": [826, 899]}, "Node: 5": {"y": [127, 155], "x": [44, 8]}, "Node: 37": {"on": [0, 1], "y": [221, 389], "x": [568, 414]}, "Node: 27": {"y": [81, -142], "x": [134, 328]}, "Node: 29": {"y": [-91, -142], "x": [247, 536]}, "Node: 22": {"y": [225, 312], "x": [204, 137]}, "Node: 80": {"y": [85, -181], "x": [719, 624]}, "Node: 85": {"x": [519, null], "y": [-225, null], "on": [0, null]}, "Node: 74": {"on": [0, 1], "y": [104, 206], "x": [867, 672]}, "Node: 12": {"on": [0, 1], "y": [256, 284], "x": [375, 345]}, "Node: 58": {"y": [439, 353], "x": [913, 953]}, "Node: 19": {"y": [157, 288], "x": [204, 174]}, "Node: 81": {"on": [1, 0], "y": [31, -225], "x": [719, 511]}, "Node: 10": {"y": [338, 420], "x": [283, 270]}, "Node: 9": {"y": [338, 420], "x": [249, 219]}, "Node: 56": {"on": [0, 1], "y": [439, 386], "x": [858, 958]}, "Node: 60": {"on": [1, 0], "y": [386, 327], "x": [950, 942]}, "Node: 0": {"x": [440, 430]}, "Node: 73": {"y": [0, 199], "x": [966, 718]}, "Node: 69": {"on": [1, 0], "y": [81, 0], "x": [1064, 974]}, "Node: 63": {"on": [1, 0], "y": [342, 174], "x": [940, 931]}, "Node: 70": {"on": [1, 0], "y": [81, 104], "x": [1104, 875]}, "Node: 44": {"on": [1, 0], "y": [438, 370], "x": [458, 568]}}}, "u10ADD10ACF": {"Contour: 0": {"Node: 36": {"y": [104, 340], "x": [628, 414]}, "Node: 28": {"on": [0, 1], "y": [-10, -142], "x": [171, 432]}, "Node: 39": {"y": [278, 438], "x": [472, 444]}, "Node: 84": {"y": [160, -107], "x": [693, 694]}, "Node: 46": {"y": [414, 281], "x": [516, 749]}, "Node: 71": {"y": [103, -2], "x": [1030, 1050]}, "Node: 87": {"x": [719, null], "y": [-16, null], "on": [0, null]}, "Node: 77": {"on": [1, 0], "y": [-10, 189], "x": [1003, 805]}, "Node: 86": {"on": [1, 0], "y": [31, -225], "x": [719, 511]}, "Node: 59": {"on": [0, 1], "y": [414, 342]}, "Node: 20": {"on": [1, 0], "y": [199, 312], "x": [204, 174]}, "Node: 64": {"y": [327, 172], "x": [934, 959]}, "Node: 18": {"on": [0, 1], "y": [91, 290], "x": [252, 174]}, "Node: 13": {"on": [1, 0], "y": [204, 223], "x": [375, 345]}, "Node: 83": {"on": [1, 0], "y": [200, -13], "x": [665, 727]}, "Node: 90": {"x": [519, null], "y": [-225, null], "on": [0, null]}, "Node: 82": {"on": [0, 1], "y": [191, 37], "x": [711, 727]}, "Node: 78": {"y": [-10, 199], "x": [957, 718]}, "Node: 66": {"y": [264, 121], "x": [923, 1016]}, "Node: 32": {"y": [-142, 110], "x": [511, 636]}, "Node: 30": {"y": [-142, -40], "x": [362, 636]}, "Node: 76": {"on": [0, 1], "y": [-10, 189], "x": [1013, 856]}, "Node: 26": {"on": [1, 0], "y": [121, -58], "x": [134, 178]}, "Node: 16": {"y": [91, 173], "x": [328, 222]}, "Node: 21": {"on": [0, 1], "y": [206, 319], "x": [204, 175]}, "Node: 41": {"on": [1, 0], "y": [389, 438], "x": [401, 492]}, "Node: 4": {"y": [56, 89], "x": [44, 8]}, "Node: 47": {"y": [395, 276], "x": [535, 841]}, "Node: 65": {"y": [290, 135], "x": [923, 998]}, "Node: 7": {"y": [291, 368], "x": [104, 71]}, "Node: 38": {"on": [1, 0], "y": [257, 414], "x": [528, 414]}, "Node: 49": {"y": [320, 330], "x": [626, 836]}, "Node: 2": {"y": [-169, -157], "x": [207, 161]}, "Node: 67": {"y": [225, 103], "x": [923, 1040]}, "Node: 17": {"on": [1, 0], "y": [91, 241], "x": [297, 174]}, "Node: 62": {"on": [0, 1], "y": [353, 264], "x": [945, 933]}, "Node: 42": {"y": [415, 408], "x": [401, 532]}, "Node: 3": {"y": [-71, -45], "x": [101, 58]}, "Node: 75": {"y": [-2, 96], "x": [1040, 886]}, "Node: 31": {"y": [-142, 41], "x": [440, 636]}, "Node: 23": {"on": [1, 0], "y": [237, 231], "x": [205, 98]}, "Node: 45": {"y": [438, 320], "x": [483, 635]}, "Node: 33": {"y": [-95, 227], "x": [593, 582]}, "Node: 25": {"y": [170, 81], "x": [134, 98]}, "Node: 61": {"y": [376, 290], "x": [950, 933]}, "Node: 40": {"on": [0, 1], "y": [340, 438], "x": [401, 466]}, "Node: 15": {"on": [0, 1], "y": [126, 173], "x": [361, 267]}, "Node: 8": {"y": [338, 420], "x": [198, 168]}, "Node: 14": {"y": [178, 173], "x": [375, 297]}, "Node: 54": {"on": [1, 0], "y": [343, 439], "x": [826, 923]}, "Node: 48": {"y": [372, 290], "x": [558, 839]}, "Node: 55": {"y": [387, 414], "x": [826, 960]}, "Node: 35": {"on": [1, 0], "y": [33, 276], "x": [628, 487]}, "Node: 24": {"on": [0, 1], "y": [230, 163], "x": [167, 98]}, "Node: 68": {"y": [172, 68], "x": [949, 1072]}, "Node: 72": {"y": [68, -10], "x": [1062, 1023]}, "Node: 50": {"on": [0, 1], "y": [281, 343], "x": [740, 836]}, "Node: 6": {"y": [197, 252], "x": [44, 8]}, "Node: 88": {"x": [691, null], "y": [-107, null], "on": [0, null]}, "Node: 51": {"on": [1, 0], "y": [276, 387], "x": [831, 836]}, "Node: 57": {"on": [1, 0], "y": [439, 376], "x": [891, 960]}, "Node: 52": {"y": [290, 439], "x": [829, 868]}, "Node: 11": {"y": [314, 355], "x": [340, 345]}, "Node: 43": {"on": [0, 1], "y": [438, 391], "x": [432, 548]}, "Node: 34": {"on": [0, 1], "y": [-15, 257], "x": [628, 536]}, "Node: 79": {"on": [0, 1], "y": [95, 206], "x": [877, 672]}, "Node: 1": {"x": [352, 320]}, "Node: 53": {"on": [0, 1], "y": [330, 439], "x": [826, 901]}, "Node: 5": {"y": [127, 155], "x": [44, 8]}, "Node: 37": {"on": [0, 1], "y": [225, 389], "x": [575, 414]}, "Node: 27": {"y": [81, -142], "x": [134, 328]}, "Node: 29": {"y": [-91, -142], "x": [247, 536]}, "Node: 22": {"y": [225, 312], "x": [204, 137]}, "Node: 80": {"on": [1, 0], "y": [184, 165], "x": [850, 701]}, "Node: 85": {"y": [84, -181], "x": [719, 624]}, "Node: 74": {"y": [20, -10], "x": [1062, 967]}, "Node: 12": {"on": [0, 1], "y": [256, 284], "x": [375, 345]}, "Node: 58": {"y": [439, 353], "x": [913, 955]}, "Node: 19": {"y": [157, 297], "x": [204, 174]}, "Node: 81": {"y": [185, 91], "x": [802, 727]}, "Node: 10": {"y": [338, 420], "x": [283, 270]}, "Node: 9": {"y": [338, 420], "x": [249, 219]}, "Node: 56": {"on": [0, 1], "y": [439, 386], "x": [858, 960]}, "Node: 60": {"on": [1, 0], "y": [386, 327], "x": [950, 944]}, "Node: 0": {"x": [440, 430]}, "Node: 89": {"x": [626, null], "y": [-181, null], "on": [0, null]}, "Node: 73": {"y": [42, -10], "x": [1062, 1013]}, "Node: 69": {"on": [0, 1], "y": [135, 42], "x": [988, 1072]}, "Node: 63": {"on": [1, 0], "y": [342, 225], "x": [940, 933]}, "Node: 70": {"on": [1, 0], "y": [121, 20], "x": [1006, 1072]}, "Node: 44": {"on": [1, 0], "y": [438, 370], "x": [458, 568]}}}, "u10ACF.fina": {"Contour: 0": {"Node: 36": {"y": [160, 311], "x": [448, 353]}, "Node: 28": {"y": [256, 163], "x": [98, 70]}, "Node: 39": {"y": [81, 118], "x": [443, 448]}, "Node: 46": {"x": [null, 303], "y": [null, -10], "on": [null, 0]}, "Node: 35": {"y": [243, 351], "x": [412, 276]}, "Node: 24": {"y": [117, 147], "x": [87, 199]}, "Node: 20": {"on": [1, 0], "y": [169, 241], "x": [157, 205]}, "Node: 18": {"x": [200, 214]}, "Node: 32": {"on": [1, 0], "y": [351, 319], "x": [239, 127]}, "Node: 30": {"y": [312, 214], "x": [135, 70]}, "Node: 26": {"y": [160, 125], "x": [71, 146]}, "Node: 21": {"y": [147, 209], "x": [150, 211]}, "Node: 41": {"y": [0, 81], "x": [542, 443]}, "Node: 43": {"x": [344, 542]}, "Node: 34": {"on": [0, 1], "y": [311, 351], "x": [352, 235]}, "Node: 38": {"y": [98, 160]}, "Node: 37": {"on": [1, 0], "y": [118, 243], "x": [448, 413]}, "Node: 27": {"y": [191, 125], "x": [71, 109]}, "Node: 29": {"y": [280, 191], "x": [114, 70]}, "Node: 22": {"on": [0, 1], "y": [117, 193], "x": [131, 211]}, "Node: 42": {"y": [0, 81], "x": [344, 542]}, "Node: 19": {"on": [0, 1], "y": [214, 255], "x": [171, 200]}, "Node: 31": {"y": [351, 269], "x": [192, 88]}, "Node: 23": {"on": [1, 0], "y": [117, 179], "x": [109, 211]}, "Node: 45": {"x": [null, 344], "y": [null, 0], "on": [null, 1]}, "Node: 33": {"x": [278, 190]}, "Node: 25": {"y": [143, 125], "x": [71, 171]}, "Node: 40": {"on": [1, 0], "y": [81, 98], "x": [542, 448]}, "Node: 44": {"on": [0, 1], "y": [-10, 0], "x": [303, 344]}}}}}, "hmtx": {"metrics": {"u10ADD10ACF.fina": {"0": [1065, 1073], "1": [44, 8]}, "u10ADD10ACF": {"0": [1104, 1114], "1": [44, 8]}}}};</script>
+
+    </div>
+</body>
+	<script>
+
+	POSITION = "old"
+	fontToggle = document.getElementById("font-toggle")
+	function switchFonts() {
+	boxTitles = document.getElementsByClassName("box-title")
+	items = document.getElementsByClassName("box-text");
+	  
+	if (POSITION === "old") {
+	  POSITION = "new"
+	  for (item of boxTitles) {
+	    item.textContent = item.textContent.replace("old", "new")
+	    fontToggle.textContent = "new"
+	  }
+	  for (item of items) {
+		item.className = item.className.replace("old", "new")
+	  }
+
+	  } else {
+	  POSITION = "old"
+	  for (item of boxTitles) {
+	    item.textContent = item.textContent.replace("new", "old")
+	    fontToggle.textContent = "old"
+	  }
+	  for (item of items) {
+		item.className = item.className.replace("new", "old")
+	  }
+	}
+	}
+	if (fontToggle !== null) {
+		fontToggle.addEventListener("click", switchFonts);
+	}
+
+// apply optional ot feats
+
+function buildFeatureList() {
+	var features = [
+		'aalt', 'c2sc', 'calt', 'case', 'cpsp', 'dlig', 'dnom',
+		'fina', 'frac', 'init', 'kern', 'liga', 'lnum', 'numr', 'onum',
+		'ordn', 'pnum', 'salt', 'sinf', 'smcp', 'sups',
+		'swsh', 'titl', 'tnum', 'zero', 'ss01', 'ss02',
+		'ss03', 'ss04', 'ss05', 'ss06', 'ss07', 'ss08',
+		'ss09', 'ss10', 'ss11', 'ss12', 'ss13', 'ss14',
+		'ss15', 'ss16', 'ss17', 'ss18', 'ss19', 'ss20'
+	]
+	
+	var otPanel = document.getElementById("ot-panel")
+	for (i=0; i<features.length; i++) {
+		var feat = features[i]
+		
+		var row = document.createElement("div");
+
+		var item = document.createElement("input");
+		item.type = "checkbox"
+		item.value = feat
+		item.classList.add("ot-checkbox")
+		var label = document.createElement("label")
+		label.textContent = feat
+
+		row.appendChild(item)
+		row.appendChild(label)
+
+		otPanel.appendChild(row)
+	}
+}
+
+buildFeatureList()
+
+
+function enableFeatures() {
+	var checkboxes = document.getElementsByClassName("ot-checkbox")
+	var res = []
+	var disableKerning = false
+	for (i=0; i<checkboxes.length; i++) {
+		if (checkboxes[i].checked === true) {
+			var checkbox = checkboxes[i]
+			res.push('"' + checkbox.value + '"')
+
+			if (checkbox.value === "kern") {
+				disableKerning = true
+			}
+		}
+	}	
+
+	var boxText = document.getElementsByClassName("box-text")
+	var otString = res.join(", ")
+	for (j=0; j<boxText.length; j++) {
+		boxText[j].style.fontFeatureSettings = otString
+		if (disableKerning === true) {
+			boxText[j].style.fontKerning = "none"
+		}
+	}
+}
+
+var otButton = document.getElementById("ot-button")
+otButton.addEventListener("click", function() {
+    otPanel = document.getElementById("ot-panel")
+    if (otPanel.style.display !== "block") {
+        otPanel.style.display = "block"
+    } else {
+        otPanel.style.display = "none"
+    }
+})
+var checkboxes = document.getElementsByClassName("ot-checkbox")
+for (i=0; i<checkboxes.length; i++) {
+	cb = checkboxes[i]
+	cb.addEventListener("click", enableFeatures)
+}	
+    
+  class Table {
+      constructor(data) {
+          this.data = {"root": data}
+          this.open("root")
+      }
+
+      createNode(key, label) {
+          let childElem = document.createElement("div")
+          let childKey = key
+          childElem.dataset.path = childKey
+          childElem.dataset.open = "0"
+          childElem.innerHTML = label
+          childElem.classList.add("node")
+          return childElem
+      }
+
+      close(key) {
+          let htmlParent = document.querySelector(`[data-path="${key}"]`)
+          let label = htmlParent.childNodes[0].nodeValue
+          htmlParent.replaceChildren()
+          htmlParent.textContent = label
+          htmlParent.dataset.open = "0"
+      }
+
+      open(key) {
+          let htmlParent = document.querySelector(`[data-path="${key}"]`)
+          htmlParent.dataset.open = "1"
+
+          // traverse to correct data level based on data-path
+          let path = key.split(".")
+          let data = this.data
+          for (var i=0; i<path.length; i++) {
+              data = data[path[i]];
+
+          }
+
+          // arrays containing two values are used as leaf nodes.
+          // The first item is the before value and the second
+          // is for after value.
+          if (Array.isArray(data)) {
+              let childElem = this.createNode("", "")
+              let before = document.createElement("span")
+              before.classList.add("attr-before")
+              before.textContent = String(data[0]) + " "
+              let after = document.createElement("span")
+              after.classList.add("attr-after")
+              after.textContent = String(data[1])
+              childElem.appendChild(before)
+              childElem.appendChild(after)
+              htmlParent.appendChild(childElem)
+              return
+          }
+          // Create next child nodes
+          for (var i in data) {
+              let childKey = key + "." + i
+              let childElem = this.createNode(childKey, i)
+              htmlParent.appendChild(childElem);
+              var that = this
+
+              // Toggle whether to open or close a node
+              childElem.addEventListener("click", function() {
+                  if (this.dataset.open === "0") {
+                      that.open(childKey)
+                      event.stopPropagation()
+                  } else {
+                      that.close(childKey)
+                      event.stopPropagation()
+                  }
+              })
+          }
+      }
+  }
+
+  let t = new Table(fontdiff, document.getElementById("difftable"))
+
+
+function wordBreaks() {
+  words = document.getElementsByClassName("cell-word")
+  res = []
+  prevTop = 0
+  for (i=0; i<words.length; i++) {
+      var word = words[i]
+      currentTop = word.getBoundingClientRect().top
+      if (currentTop > prevTop) {
+          res.push(i)
+      }
+      prevTop = currentTop
+  }
+  return res
+}
+
+async function insertBreaks() {
+  switchFonts()
+  await sleep(1)
+  breaksBefore = wordBreaks()
+  switchFonts()
+  await sleep(1)
+  breaksAfter = wordBreaks()
+
+
+  console.log(breaksBefore.length, breaksAfter.length)
+
+  if (breaksBefore.length >= breaksAfter.length) {
+    breaks = breaksBefore
+  } else {
+    breaks = breaksAfter
+  }
+
+  words = document.getElementsByClassName("cell-word")
+  breaks.forEach(function(i) {
+    if (i != 0) {
+      i = i
+    }
+    word = words[i]
+    spacer = document.createElement("div")
+    spacer.className = "spacer"
+    word.parentNode.insertBefore(spacer, word)
+  })
+}
+
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+  
+insertBreaks()
+
+
+    </script>
+</html>
